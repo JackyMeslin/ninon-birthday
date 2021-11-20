@@ -5,11 +5,48 @@
 let map, infoWindow;
 
 function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
+  const map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 47.6548515, lng: -2.0960944 },
+    mapTypeId: google.maps.MapTypeId.SATELLITE,
+    // mapTypeId: google.maps.MapTypeId.ROADMAP,
+    // mapTypeId: google.maps.MapTypeId.HYBRID,
+    // mapTypeId: google.maps.MapTypeId.TERRAIN,
     zoom: 17,
   });
-  infoWindow = new google.maps.InfoWindow();
+//   infoWindow = new google.maps.InfoWindow();
+
+  const tourStops = [
+    [{ lat: 47.65456, lng: -2.09315 }, "Bell Rock"],
+    [{ lat: 47.65413, lng: -2.08947 }, "Boynton Pass"],
+    [{ lat: 47.65724, lng: -2.09191 }, "Airport Mesa"],
+    [{ lat: 47.65786, lng: -2.09484 }, "Chapel of the Holy Cross"],
+    [{ lat: 47.65844, lng: -2.09527 }, "Red Rock Crossing"],
+  ];
+  // Create an info window to share between markers.
+  const infoWindow = new google.maps.InfoWindow();
+
+  // Create the markers.
+  tourStops.forEach(([position, title], i) => {
+    const marker = new google.maps.Marker({
+      position,
+      map,
+      title: `${i + 1}. ${title}`,
+      label: `${i + 1}`,
+      optimized: false,
+    });
+
+    // Add a click listener for each marker, and set up the info window.
+    marker.addListener("click", () => {
+      infoWindow.close();
+      infoWindow.setContent(marker.getTitle());
+      infoWindow.open(marker.getMap(), marker);
+    });
+  });
+
+//   new google.maps.Marker({
+//     position: new google.maps.LatLng(47.655, -2.0961),
+//     map: map,
+//     title: "Locronan - Rue du Prieuré"
 
   const locationButton = document.createElement("button");
 
@@ -51,3 +88,4 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   );
   infoWindow.open(map);
 }
+
