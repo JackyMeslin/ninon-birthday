@@ -91,6 +91,27 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.open(map);
 }
 
+function correctAnswer() {
+  document.getElementById("demo").innerHTML = "Bonne réponse";
+}
 
+function falseAnswer() {
+  document.getElementById("demo").innerHTML = "Mauvaise réponse";
+}
 
+// function myFunction2() {
+//   document.getElementById("demo2").innerHTML = "<button>Click me</button>";
+// }
 
+// function myFunction2() {
+//   document.getElementById("panel").style.display = "toggle";
+// }
+
+function myFunction2() {
+  var x = document.getElementById("panel");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+} 
