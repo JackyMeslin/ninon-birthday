@@ -77,6 +77,8 @@ function initMap() {
       handleLocationError(false, infoWindow, map.getCenter());
     }
   });
+  navigator.geolocation.getCurrentPosition(maPosition, erreurPosition,{maximumAge:0,timeout:5000,enableHighAccuracy:true});
+
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -88,4 +90,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   );
   infoWindow.open(map);
 }
+
+
+
 
