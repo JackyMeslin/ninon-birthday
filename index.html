@@ -1,103 +1,18 @@
-<!doctype html>
-<html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <title>HTML5 : Géolocalisation</title>
-        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=set_to_true_or_false"></script>
-    </head>
-    <body>
-        
-<!-- Un élément HTML pour recueillir l’affichage -->
-<div id="infoposition"></div>
-test push
-<div id="map"></div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geolocation</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script src="./index.js"></script>
+  </head>
+  <body>
+    <div id="map"></div>
 
-
-
-<script>
-
-    // Position par défaut (Châtelet à Paris)
-    var centerpos = new google.maps.LatLng(47.6548515,-2.0960944);
-
-    // Options relatives à la carte
-    var optionsGmaps = {
-        center:centerpos,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        zoom: 15
-    };
-    // ROADMAP peut être remplacé par SATELLITE, HYBRID ou TERRAIN
-    // Zoom : 0 = terre entière, 19 = au niveau de la rue
-    
-    // Initialisation de la carte pour l'élément portant l'id "map"
-    var map = new google.maps.Map(document.getElementById("map"), optionsGmaps);
-    
-    // .. et la variable qui va stocker les coordonnées
-    var latlng;
-
-
-    function maPosition(position) {
-      var infopos = "Position déterminée :\n";
-      infopos += "Latitude : "+position.coords.latitude +"\n";
-      infopos += "Longitude: "+position.coords.longitude+"\n";
-      infopos += "Altitude : "+position.coords.altitude +"\n";
-      document.getElementById("infoposition").innerHTML = infopos;
-    }
-    
-    if(navigator.geolocation)
-      navigator.geolocation.getCurrentPosition(maPosition);
-
-
-    // Fonction de callback en cas de succès
-    function surveillePosition(position) {
-        var infopos = "Position déterminée :\n";
-        infopos += "Latitude : "+position.coords.latitude +"\n";
-        infopos += "Longitude: "+position.coords.longitude+"\n";
-        infopos += "Altitude : "+position.coords.altitude +"\n";
-        infopos += "Vitesse  : "+position.coords.speed +"\n";
-        document.getElementById("infoposition").innerHTML = infopos;
-    }
-
-    // On déclare la variable survId afin de pouvoir par la suite annuler le suivi de la position
-    var survId = navigator.geolocation.watchPosition(surveillePosition);
-
-
-
-    // Annule le suivi de la position si nécessaire.
-    // navigator.geolocation.clearWatch(survId);
-
-    // Fonction de callback en cas d’erreur
-    function erreurPosition(error) {
-        var info = "Erreur lors de la géolocalisation : ";
-        switch(error.code) {
-        case error.TIMEOUT:
-            info += "Timeout !";
-        break;
-        case error.PERMISSION_DENIED:
-        info += "Vous n’avez pas donné la permission";
-        break;
-        case error.POSITION_UNAVAILABLE:
-            info += "La position n’a pu être déterminée";
-        break;
-        case error.UNKNOWN_ERROR:
-            info += "Erreur inconnue";
-        break;
-        }
-    }
-    document.getElementById("infoposition").innerHTML = info
-
-
-
-    // Le paramètre maximumAge met en cache la position 
-    // pour une durée de 600000 millisecondes (10 minutes), 
-    // ainsi la position est mise à jour toutes les 10 minutes au maximum.
-    navigator.geolocation.getCurrentPosition(maPosition, erreurPosition,{maximumAge:600000});
-
-    navigator.geolocation.getCurrentPosition(maPosition, erreurPosition,{maximumAge:600000,enableHighAccuracy:true});
-
-
-    
-</script>
-
-
-</body>
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeCZopw1nlN3xaVwi4Wm53XRHiqjOXb3g&callback=initMap&v=weekly"
+      async
+    ></script>
+  </body>
 </html>
