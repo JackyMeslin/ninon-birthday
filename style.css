@@ -1,14 +1,16 @@
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-       #map {
-        height: 100%;
+      #map {
+        height: 80%;
+        weight: 50%;
+        
       }
       
       /* Optional: Makes the sample page fill the window. */
       html,
       body {
         height: 100%;
-        margin: 0;
+        margin: 10px;
         padding: 0;
       }
 
@@ -31,4 +33,15 @@
       
       #panel {
         display: none;
+      }
+
+      #tresor {
+        display: none;
+      }
+
+
+      p {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 20px;
+        color: red;
       }

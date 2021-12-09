@@ -11,16 +11,21 @@ function initMap() {
     // mapTypeId: google.maps.MapTypeId.ROADMAP,
     // mapTypeId: google.maps.MapTypeId.HYBRID,
     // mapTypeId: google.maps.MapTypeId.TERRAIN,
-    zoom: 17,
+    zoom: 18,
   });
 //   infoWindow = new google.maps.InfoWindow();
 
   const tourStops = [
-    [{ lat: 47.65456, lng: -2.09315 }, "Bell Rock"],
-    [{ lat: 47.65413, lng: -2.08947 }, "Boynton Pass"],
-    [{ lat: 47.65724, lng: -2.09191 }, "Airport Mesa"],
-    [{ lat: 47.65786, lng: -2.09484 }, "Chapel of the Holy Cross"],
-    [{ lat: 47.65844, lng: -2.09527 }, "Red Rock Crossing"],
+    [{ lat: 47.65461124514983, lng: -2.093592017136687 }, "Etape 1 - Entrée du lycée"],
+    [{ lat: 47.65405984928339, lng: -2.0938473915020586 }, "Etape 2 - Feu Lycée"],
+    [{ lat: 47.65429787032735, lng: -2.0899922059130676 }, "Etape 3 - Entrée Parc Bel-Air"],
+    [{ lat: 47.6541302947324, lng: -2.089483927308093 }, "Etape 4 - Grotte Bel-Air"],
+    [{ lat: 47.65724, lng: -2.09191 }, "Etape 5 - Entrée terrain de foot"],
+    [{ lat: 47.65777982176585, lng: -2.0932188480896703 }, "Etape 6 - Sortie terrain de foot"],
+    [{ lat: 47.65786, lng: -2.09484 }, "Etape 7 - Entrée Parc Bel-Air"],
+    [{ lat: 47.65857806590545, lng: -2.095104462704164 }, "Etape 8 - angle du champ"],
+    [{ lat: 47.65840753503838, lng: -2.09662931385536 }, "Etape 9 - chemin sortie bois"],
+    [{ lat: 47.65546353168471, lng: -2.097073972235277 }, "Etape 10 - Rue de la Close"],
   ];
   // Create an info window to share between markers.
   const infoWindow = new google.maps.InfoWindow();
@@ -91,13 +96,13 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.open(map);
 }
 
-function correctAnswer() {
-  document.getElementById("demo").innerHTML = "Bonne réponse";
-}
+// function correctAnswer() {
+//   document.getElementById("demo").innerHTML = "Bonne réponse";
+// }
 
-function falseAnswer() {
-  document.getElementById("demo").innerHTML = "Mauvaise réponse";
-}
+// function falseAnswer() {
+//   document.getElementById("demo").innerHTML = "Mauvaise réponse";
+// }
 
 // function myFunction2() {
 //   document.getElementById("demo2").innerHTML = "<button>Click me</button>";
@@ -107,8 +112,26 @@ function falseAnswer() {
 //   document.getElementById("panel").style.display = "toggle";
 // }
 
-function myFunction2() {
+// function myFunction2() {
+//   var x = document.getElementById("panel");
+//   if (x.style.display === "block") {
+//     x.style.display = "none";
+//   } else {
+//     x.style.display = "block";
+//   }
+// } 
+
+function start() {
   var x = document.getElementById("panel");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+} 
+
+function tresor() {
+  var x = document.getElementById("tresor");
   if (x.style.display === "block") {
     x.style.display = "none";
   } else {

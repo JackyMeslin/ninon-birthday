@@ -5,31 +5,62 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Geolocation</title>
     <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script> -->
-    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="./index.js"></script>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet"> 
     <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
-      <META HTTP-EQUIV="EXPIRES" CONTENT="Mon, 22 Jul 2002 11:12:01 GMT">
+    <META HTTP-EQUIV="EXPIRES" CONTENT="Mon, 22 Jul 2002 11:12:01 GMT">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap');
+    </style> 
   </head>
   <body>
-    <div class="h-screen">
-      <button class="m-2 p-2 pl-5 pr-5 transition-colors duration-700 transform bg-indigo-500 hover:bg-blue-400 text-gray-100 text-lg rounded-lg focus:border-4 border-indigo-300" onclick="correctAnswer()">réponse 1</button>
+    <div class="flex h-screen align-baseline text-center">
+      <div class="m-auto py-12 text-3xl">
+        <div>
+          <p id="p2">Êtes-vous prêt.e.s <br> pour empêcher le dragon de se réveiller <br> et d'anéantir le village ?</p>
+        </div>
+        <div>
+          <img src="image/dragon.jpg" alt="">
+        </div>
+        
+        <div>
+          <button class="m-2 p-2 pl-5 pr-5 transition-colors duration-700 transform bg-indigo-500 hover:bg-blue-400 text-gray-100 text-lg rounded-lg focus:border-4 border-indigo-300" onclick="start()">Nous sommes prêt.e.s !</button>
+        </div>
+        <div id="panel">
+          <a href="#map">
+            <button class="p-2 pl-5 pr-5 bg-transparent border-2 border-indigo-500 text-indigo-500 text-lg rounded-lg transition-colors duration-700 transform hover:bg-indigo-500 hover:text-gray-100 focus:border-4 focus:border-indigo-300" onclick="myFunction3()">Voir la carte avec les indices !</button>
+          </a>
+        </div>
+      </div>
+
+      <!-- <button class="m-2 p-2 pl-5 pr-5 transition-colors duration-700 transform bg-indigo-500 hover:bg-blue-400 text-gray-100 text-lg rounded-lg focus:border-4 border-indigo-300" onclick="correctAnswer()">réponse 1</button>
       <button class="m-2 p-2 pl-5 pr-5 transition-colors duration-700 transform bg-indigo-500 hover:bg-blue-400 text-gray-100 text-lg rounded-lg focus:border-4 border-indigo-300" onclick="falseAnswer()">réponse 2</button>
       <button class="m-2 p-2 pl-5 pr-5 transition-colors duration-700 transform bg-indigo-500 hover:bg-blue-400 text-gray-100 text-lg rounded-lg focus:border-4 border-indigo-300" onclick="myFunction2()">réponse 3</button>
 
-      <p>Click the button to trigger a function that will output "Hello World" in a p element with id="demo".</p>
+      <p>Click the button to trigger a function that will output "Hello World" in a p element with id="demo".</p> -->
 
-    <div id="panel">
-      <a href="#map">
-        <button class="p-2 pl-5 pr-5 bg-transparent border-2 border-indigo-500 text-indigo-500 text-lg rounded-lg transition-colors duration-700 transform hover:bg-indigo-500 hover:text-gray-100 focus:border-4 focus:border-indigo-300" onclick="myFunction3()">Next step</button>
-      </a>
-    </div>
 
-<p id="demo"></p>
-<p id="demo2"></p>
+<!-- <p id="demo"></p>
+<p id="demo2"></p> -->
     </div>
-    <div id="map"></div>
-    
+    <div id="map" class="h-screen"></div>
+    <div class="flex h-screen align-baseline text-center">
+      <div>
+        <button class="m-2 p-2 pl-5 pr-5 transition-colors duration-700 transform bg-indigo-500 hover:bg-blue-400 text-gray-100 text-lg rounded-lg focus:border-4 border-indigo-300" onclick="tresor()">Montre nous la cache au trésor !</button>
+      </div>
+      <div id="tresor">
+        <a href="#cache">
+          <button class="p-2 pl-5 pr-5 bg-transparent border-2 border-indigo-500 text-indigo-500 text-lg rounded-lg transition-colors duration-700 transform hover:bg-indigo-500 hover:text-gray-100 focus:border-4 focus:border-indigo-300" onclick="myFunction3()">Voici le trésor !</button>
+        </a>
+              </div>
+    </div>
+    <div id="cache" class="h-screen">
+      <img src="image/dragon.jpg" alt="">
+    </div>
 
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script
