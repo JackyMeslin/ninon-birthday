@@ -38,7 +38,7 @@ function initMap() {
       title: `${i + 1}. ${title}`,
       label: `${i + 1}`,
       optimized: false,
-    });
+  });
 
     // Add a click listener for each marker, and set up the info window.
     marker.addListener("click", () => {
@@ -137,4 +137,52 @@ function tresor() {
   } else {
     x.style.display = "block";
   }
-} 
+}
+
+var upgradeTime = 7200;
+var seconds = upgradeTime;
+function timer() {
+  var days        = Math.floor(seconds/24/60/60);
+  var hoursLeft   = Math.floor((seconds) - (days*86400));
+  var hours       = Math.floor(hoursLeft/3600);
+  var minutesLeft = Math.floor((hoursLeft) - (hours*3600));
+  var minutes     = Math.floor(minutesLeft/60);
+  var remainingSeconds = seconds % 60;
+  function pad(n) {
+    return (n < 10 ? "0" + n : n);
+  }
+  document.getElementById('countdown').innerHTML = pad(days) + ":" + pad(hours) + ":" + pad(minutes) + ":" + pad(remainingSeconds);
+  if (seconds == 0) {
+    clearInterval(countdownTimer);
+    document.getElementById('countdown').innerHTML = "Completed";
+  } else {
+    seconds--;
+  }
+}
+var countdownTimer = setInterval('timer()', 1000);
+
+
+var myTimer;
+function clock() {
+     myTimer = setInterval(myClock, 1000);
+     var c = 7200;
+
+     function myClock() {
+       document.getElementById("demo").innerHTML = --c;
+       if (c == 0) {
+         clearInterval(myTimer);
+         alert("Le temps est écoulé. Si vous avez fini les épreuves, vous avez gagné ! Si non le dragon est vainqueur. Votre village est détruit...");
+       }
+     }
+   }
+
+   function clock2() {
+    myTimer = setInterval(myClock, 1000);
+    var c = 7200;
+
+    function myClock() {
+      document.getElementById("demo2").innerHTML = --c;
+      
+    }
+  }
+
